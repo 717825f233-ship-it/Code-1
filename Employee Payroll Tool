@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int empId;
+    char empName[50];
+    float basicSalary, hra, da, pf, grossSalary, netSalary;
+
+    printf("===== Employee Payroll Tool =====\n");
+
+    printf("Enter Employee ID: ");
+    scanf("%d", &empId);
+
+    printf("Enter Employee Name: ");
+    scanf(" %[^\n]", empName);
+
+    printf("Enter Basic Salary: ");
+    scanf("%f", &basicSalary);
+
+    // Allowances
+    hra = 0.20 * basicSalary;  // House Rent Allowance (20%)
+    da  = 0.10 * basicSalary;  // Dearness Allowance (10%)
+
+    // Deduction
+    pf = 0.12 * basicSalary;   // Provident Fund (12%)
+
+    // Salary Calculations
+    grossSalary = basicSalary + hra + da;
+    netSalary = grossSalary - pf;
+
+    printf("\n===== Payroll Details =====\n");
+    printf("Employee ID      : %d\n", empId);
+    printf("Employee Name    : %s\n", empName);
+    printf("Basic Salary     : %.2f\n", basicSalary);
+    printf("HRA (20%%)        : %.2f\n", hra);
+    printf("DA (10%%)         : %.2f\n", da);
+    printf("PF (12%%)         : %.2f\n", pf);
+    printf("Gross Salary     : %.2f\n", grossSalary);
+    printf("Net Salary       : %.2f\n", netSalary);
+
+    return 0;
+}
